@@ -1,42 +1,467 @@
----
-name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.
-license: Complete terms in LICENSE.txt
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael | AI & Automation Consultant</title>
+  <meta name="description" content="AI and automation consultant specializing in education systems and legal tech. 10+ years in special education, background in tech sales.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
+    :root {
+      --bg: #0f0f11;
+      --bg2: #18181c;
+      --bg3: #212126;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0efe8;
+      --muted: #9a9890;
+      --accent: #7c6ff7;
+      --accent2: #4fc3a1;
+      --amber: #f0a500;
+      --radius: 12px;
+      --max: 900px;
+    }
 
-The user provides frontend requirements: a component, page, application, or interface to build. They may include context about the purpose, audience, or technical constraints.
+    html { scroll-behavior: smooth; }
 
-## Design Thinking
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
 
-Before coding, understand the context and commit to a BOLD aesthetic direction:
-- **Purpose**: What problem does this interface solve? Who uses it?
-- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
-- **Constraints**: Technical requirements (framework, performance, accessibility).
-- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15,15,17,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-name { font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
 
-**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.
+    /* ── Sections ── */
+    section { padding: 5rem 2rem; max-width: var(--max); margin: 0 auto; }
 
-Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
-- Production-grade and functional
-- Visually striking and memorable
-- Cohesive with a clear aesthetic point-of-view
-- Meticulously refined in every detail
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding-top: 8rem; padding-bottom: 4rem;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(124,111,247,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(124,111,247,0.3);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    h1 span { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--muted);
+      max-width: 560px; margin-bottom: 2.5rem; line-height: 1.75;
+    }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 12px 24px;
+      border-radius: 8px; font-size: 14px; font-weight: 500;
+      text-decoration: none; transition: all 0.2s; cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      border: 1px solid var(--accent);
+    }
+    .btn-primary:hover { background: #6a5ee0; border-color: #6a5ee0; }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: var(--bg2); }
 
-## Frontend Aesthetics Guidelines
+    /* ── Section headers ── */
+    .section-label {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .section-intro {
+      color: var(--muted); max-width: 600px;
+      margin-bottom: 3rem; font-size: 1.05rem;
+    }
 
-Focus on:
-- **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.
-- **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
-- **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
-- **Spatial Composition**: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density.
-- **Backgrounds & Visual Details**: Create atmosphere and depth rather than defaulting to solid colors. Add contextual effects and textures that match the overall aesthetic. Apply creative forms like gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, and grain overlays.
+    /* ── About ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      align-items: start;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; line-height: 1.8; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--text); }
+    .stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .stat-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+    }
+    .stat-num {
+      font-size: 2rem; font-weight: 700; letter-spacing: -0.02em;
+      color: var(--text); line-height: 1;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-NEVER use generic AI-generated aesthetics like overused font families (Inter, Roboto, Arial, system fonts), cliched color schemes (particularly purple gradients on white backgrounds), predictable layouts and component patterns, and cookie-cutter design that lacks context-specific character.
+    /* ── Projects ── */
+    .project-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+    .project-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: rgba(255,255,255,0.15); }
+    .project-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .project-title { font-size: 1.05rem; font-weight: 600; }
+    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .tag {
+      font-size: 11px; font-weight: 500; padding: 3px 10px;
+      border-radius: 20px; letter-spacing: 0.03em;
+    }
+    .tag-purple { background: rgba(124,111,247,0.15); color: #a89ef9; border: 1px solid rgba(124,111,247,0.25); }
+    .tag-teal   { background: rgba(79,195,161,0.12);  color: #6dd5b8; border: 1px solid rgba(79,195,161,0.25); }
+    .tag-amber  { background: rgba(240,165,0,0.12);   color: #f5c040; border: 1px solid rgba(240,165,0,0.25); }
+    .project-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.75; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 1rem; font-size: 13px; color: var(--accent);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .project-link:hover { color: #a89ef9; }
+    .project-link svg { width: 14px; height: 14px; }
+    .wip-badge {
+      font-size: 11px; font-weight: 500; padding: 3px 10px;
+      border-radius: 20px; background: rgba(240,165,0,0.1);
+      color: var(--amber); border: 1px solid rgba(240,165,0,0.25);
+      white-space: nowrap;
+    }
 
-Interpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices (Space Grotesk, for example) across generations.
+    /* ── Skills ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .skill-group {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+    }
+    .skill-group-title {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 0.75rem;
+    }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      font-size: 14px; color: var(--muted); padding: 3px 0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .skill-list li::before {
+      content: ''; width: 4px; height: 4px;
+      border-radius: 50%; background: var(--accent);
+      flex-shrink: 0;
+    }
 
-**IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.
+    /* ── Contact ── */
+    #contact { text-align: center; }
+    #contact .section-intro { margin-left: auto; margin-right: auto; }
+    .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--bg2);
+      color: var(--text); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .contact-link:hover { border-color: rgba(255,255,255,0.2); background: var(--bg3); }
+    .contact-link svg { width: 18px; height: 18px; opacity: 0.7; }
 
-Remember: Claude is capable of extraordinary creative work. Don't hold back, show what can truly be created when thinking outside the box and committing fully to a distinctive vision.
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--muted);
+    }
+
+    /* ── Divider ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      section { padding: 4rem 1.25rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-name">Michael</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag">AI &amp; Automation Consulting</div>
+    <h1>Bridging human<br>systems with <span>AI.</span></h1>
+    <p class="hero-sub">
+      10+ years working inside complex institutions — special education, legal tech, utilities.
+      Now helping organizations automate the work that burns people out, so they can focus on the work that matters.
+    </p>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-primary">See my work</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <h2>The pivot has a paper trail.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I spent a decade as a <strong>special education case manager in Chicago</strong> — coordinating IEPs,
+          navigating compliance timelines, and watching skilled professionals spend half their day on documentation
+          instead of students. That friction became my obsession.
+        </p>
+        <p>
+          Before teaching, I worked in <strong>tech sales serving law firms and life sciences companies</strong>,
+          and in PR and field operations at a private utility. I've seen how institutions resist change — and
+          how the right tool, introduced the right way, actually sticks.
+        </p>
+        <p>
+          Today I build <strong>AI-powered workflows and automation systems</strong> for education teams and
+          legal professionals — the exact niches where I know the pain points from the inside.
+        </p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num">10<span>+</span></div>
+          <div class="stat-label">Years in special education</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2<span>x</span></div>
+          <div class="stat-label">Industry pivots (and counting)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Sectors: EdTech, LegalTech, Utilities</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Chi<span>.</span></div>
+          <div class="stat-label">Based in Chicago, IL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Projects</div>
+    <h2>Work that solves real problems.</h2>
+    <p class="section-intro">
+      Each project is rooted in a domain I know firsthand — education compliance, legal document work,
+      and operational automation.
+    </p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">IEP Draft Assistant</div>
+          <span class="wip-badge">In progress</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-purple">AI / LLM</span>
+          <span class="tag tag-teal">Special Education</span>
+          <span class="tag tag-amber">Python</span>
+        </div>
+        <p class="project-desc">
+          A workflow that takes raw case manager notes and generates a compliant IEP draft — present levels,
+          goals, and service minutes — reducing documentation time by an estimated 60%. Built on the Anthropic API
+          with IDEA compliance guardrails baked in.
+        </p>
+        <a href="#" class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Legal Document Review Automation</div>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-purple">AI / LLM</span>
+          <span class="tag tag-teal">Legal Tech</span>
+          <span class="tag tag-amber">Automation</span>
+        </div>
+        <p class="project-desc">
+          A demonstration pipeline for law firms that flags missing clauses, inconsistent definitions, and
+          key risk provisions across contract batches — tasks that currently consume associate hours. Built
+          as a proof-of-concept for my former legal tech sales contacts.
+        </p>
+        <a href="#" class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Consulting Intake &amp; Proposal Automator</div>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-teal">Automation</span>
+          <span class="tag tag-amber">No-code / Make</span>
+        </div>
+        <p class="project-desc">
+          A lightweight system built with Make (formerly Integromat) that turns a new client inquiry form
+          into a formatted discovery call agenda, a scoped proposal draft, and a tracked project in Notion —
+          automatically. Built for solo consultants and small teams.
+        </p>
+        <a href="#" class="project-link">
+          View on GitHub
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <h2>What I bring to the table.</h2>
+    <p class="section-intro">
+      A rare mix of domain credibility and emerging tech fluency — the combination that makes
+      AI consulting actually land with institutional clients.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">AI &amp; Automation</div>
+        <ul class="skill-list">
+          <li>Anthropic / OpenAI APIs</li>
+          <li>Prompt engineering</li>
+          <li>Make (Integromat)</li>
+          <li>Zapier</li>
+          <li>Airtable / Notion</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Domain Expertise</div>
+        <ul class="skill-list">
+          <li>Special education (IDEA)</li>
+          <li>IEP compliance &amp; documentation</li>
+          <li>Legal tech sales</li>
+          <li>Law firm operations</li>
+          <li>Utility / field operations</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Technical</div>
+        <ul class="skill-list">
+          <li>Python (beginner–intermediate)</li>
+          <li>HTML / CSS</li>
+          <li>GitHub / version control</li>
+          <li>API integrations</li>
+          <li>Data workflows</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Consulting</div>
+        <ul class="skill-list">
+          <li>Discovery &amp; scoping</li>
+          <li>Workflow analysis</li>
+          <li>Stakeholder communication</li>
+          <li>Tech sales (B2B)</li>
+          <li>Change management</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <h2>Let's build something useful.</h2>
+    <p class="section-intro">
+      If you're an education leader, legal team, or organization looking to reduce manual work with AI —
+      or if you're hiring for a role at that intersection — I'd love to connect.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:your@email.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Email me
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by Michael &nbsp;·&nbsp; Chicago, IL &nbsp;·&nbsp; <span id="year"></span></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
